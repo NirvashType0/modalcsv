@@ -1,0 +1,25 @@
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>NIS</th>
+        <th colspan="3">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @invmtolineas.each do |invmtolinea| %>
+        <tr>
+          <td><%= invmtolinea.nombre %></td>
+          <td><%= invmtolinea.nis %></td>
+          <td>
+            <div title="Ver Datos" data-toogle="tooltip" placement="left">
+              <%= link_to raw('<i class="fa fa-eye" aria-hidden="true"></i>'), invmtolinea, {:remote=> true, :class => 'btn btn-info btnc', 'data-toggle' =>  "modal", 'data-target' => '#modalW'} %>
+            </div>
+          </td>
+          <td class="text-center"><%= link_to raw('<i class="fa fa-pencil-square" aria-hidden="true"></i>'), edit_invmtolinea_path(invmtolinea), :class =>'btn btn-primary btnc', :remote=> true, :title => 'Editar Linea',:data => { :toogle => 'tooltip', :placement => 'left'} %></td>
+          <td class="text-center"><%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>'), invmtolinea,:class =>'btn btn-danger',:title => 'Eliminar', method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el registro?', :toogle => 'tooltip', :placement => 'left' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @invmtolineas, renderer: BootstrapPagination::Rails, remote: true, previous_label: "Anterior", next_label: "Siguiente"%>

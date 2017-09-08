@@ -1,0 +1,37 @@
+<%= form_with(model: invmtolinea, local: true) do |form| %>
+  <% if invmtolinea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(invmtolinea.errors.count, "error") %> prohibited this invmtolinea from being saved:</h2>
+
+      <ul>
+      <% invmtolinea.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :codlinea %>
+    <%= form.text_field :codlinea, id: :invmtolinea_codlinea %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :invmtolinea_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nis %>
+    <%= form.text_field :nis, id: :invmtolinea_nis %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facceso %>
+    <%= form.text_field :feacceso, id: :invmtolinea_facceso %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
