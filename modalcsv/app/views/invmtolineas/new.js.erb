@@ -1,0 +1,4 @@
+$('#modalW').html("<%= j (render 'new') %>");
+$('#myModal').on('shown.bs.modal', function () {
+  $('form[data-validate]').enableClientSideValidations();
+}).modal('show');

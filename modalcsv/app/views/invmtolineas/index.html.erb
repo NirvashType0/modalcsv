@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Invmtolineas</h1>
+<%= link_to 'Nueva Linea', new_invmtolinea_path, :class => 'btn btn-success', remote: true, :title => 'Nuevo Linea', :data => { :toogle => 'tooltip', :placement => 'left'} %>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Codlinea</th>
+      <th>Nombre</th>
+      <th>Nis</th>
+      <th>Feacceso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invmtolineas.each do |invmtolinea| %>
+      <tr>
+        <td><%= invmtolinea.codlinea %></td>
+        <td><%= invmtolinea.nombre %></td>
+        <td><%= invmtolinea.nis %></td>
+        <td><%= invmtolinea.feacceso %></td>
+        <td><%= link_to 'Show', invmtolinea %></td>
+        <td><%= link_to 'Edit', edit_invmtolinea_path(invmtolinea) %></td>
+        <td><%= link_to 'Destroy', invmtolinea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div id="modalW"></div>
