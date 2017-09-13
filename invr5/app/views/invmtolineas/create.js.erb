@@ -1,6 +1,0 @@
-<%- if @invmtolinea.errors.any? %>
-  $('#myModal').html("<%= j (render 'new') %>");
-<%- else %>
-  $('#myModal').modal('hide').empty();
-  window.location.reload();
-<%- end %>
